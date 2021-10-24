@@ -9,4 +9,4 @@ from .models import Account
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = Account
-        fields = ['email', 'username', 'empid', 'phone', 'dept', 'password1', 'password2']
+        fields = ['email', 'username', 'employeeId', 'phone', 'department', 'password1', 'password2']

@@ -45,9 +45,9 @@ class Account(AbstractBaseUser):
 
     email           = models.EmailField(verbose_name="email", max_length=60, unique=True)
     username        = models.CharField(max_length=40)
-    empid           = models.CharField(max_length=20, unique=True)
+    employeeId      = models.CharField(max_length=20, unique=True)
     phone           = models.CharField(max_length=10)
-    dept            = models.CharField(max_length=4, choices=DEPT,default='Computer Science & Engineering (CSE)')
+    department      = models.CharField(max_length=4, choices=DEPT,default='Computer Science & Engineering (CSE)')
 
 #Below fields are already present in AbstractBaseUser.So we need to override them
     date_joined     = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
