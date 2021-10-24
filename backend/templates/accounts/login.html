@@ -57,7 +57,7 @@
                 <a href="{% url 'login' %}" class="ud-main-btn ud-login-btn">
                   Sign In
                 </a>
-                <a class="ud-main-btn ud-white-btn" href="javascript:void(0)">
+                <a class="ud-main-btn ud-white-btn" href="{% url 'signup' %}">
                   Sign Up
                 </a>
               </div>
@@ -126,7 +126,7 @@
                 Forget Password?
               </a>
               <p class="signup-option">
-                Not a member yet? <a href="javascript:void(0)"> Sign Up </a>
+                Not a member yet? <a href="{% url 'signup' %}"> Sign Up </a>
               </p>
             </div>
           </div>

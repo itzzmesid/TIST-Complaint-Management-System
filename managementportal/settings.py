@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = "accounts.Account"
+AUTHENTICATON_BACKENDS = (
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'accounts.emailcasevalidation.CaseInsensitiveModelBackend'
+)
 
 # Application definition
 
