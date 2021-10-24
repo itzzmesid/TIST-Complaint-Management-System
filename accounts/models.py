@@ -36,11 +36,13 @@ class Account(AbstractBaseUser):
 
     DEPT = (
         ('CSE', 'Computer Science & Engineering (CSE)'),
+        ('IT', 'Information Technology (IT)'),
+        ('SF', 'Fire & Safety (SE)'),
         ('ME', 'Mechanical Engineering (ME)'),
         ('ECE', 'Electronics & Communication (ECE)'),
         ('EEE', 'Electrical & Electronics (EEE'),
-        ('SF', 'Fire & Safety (SE)'),
-        ('IT', 'Information Technology (IT)')
+        
+        
     )
 
     email           = models.EmailField(verbose_name="email", max_length=60, unique=True)
