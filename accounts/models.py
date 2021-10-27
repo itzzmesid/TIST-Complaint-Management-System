@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 #create a new (super)user
 class MyAccountManager(BaseUserManager):
 
-    def create_user(self, email, username, password=None):
+    def create_user(self, email, username , password=None):
         if not email:
             raise ValueError("Users must have an E-mail address!")
         if not username:
@@ -23,7 +23,7 @@ class MyAccountManager(BaseUserManager):
         user = self.create_user(
             email=self.normalize_email(email),
             username=username,
-            password=password,
+            password=password
         )
         user.is_admin       = True
         user.is_staff       = True
@@ -41,8 +41,6 @@ class Account(AbstractBaseUser):
         ('ME', 'Mechanical Engineering (ME)'),
         ('ECE', 'Electronics & Communication (ECE)'),
         ('EEE', 'Electrical & Electronics (EEE'),
-        
-        
     )
 
     email           = models.EmailField(verbose_name="email", max_length=60, unique=True)
@@ -63,7 +61,7 @@ class Account(AbstractBaseUser):
 
 
     USERNAME_FIELD  = 'email'
-    REQUIRED_FIELDS = ['username','empid','dept']
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return self.username
