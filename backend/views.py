@@ -4,7 +4,8 @@ from django.contrib.auth.decorators import login_required
 from accounts.decorators import allowed_users
 from django.contrib import messages
 from backend.forms import ComplaintForm
-
+from backend.models import Complaint
+from django.db.models import Count, Q
 
 def index(request):
     return render(request, 'backend/index.html')
@@ -43,8 +44,8 @@ def RegisterComplaint(request):
 
 @login_required
 def CheckStatus(request):
-    pass
-
-
-
-
+    c=Complaint.objects.filter(user=request.user)
+    # c=Complaint.objects.filter(user=request.user).exclude(status='1')
+    # result=Complaint.objects.filter(user=request.user).exclude(Q(status='3') | Q(status='2'))
+    args={'c':c}
+    return render(request,'backend/status.html',args)

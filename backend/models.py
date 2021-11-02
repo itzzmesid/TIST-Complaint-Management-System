@@ -6,12 +6,12 @@ class Complaint(models.Model):
     STATUS            = ((1,'Solved'),(2, 'InProgress'),(3,'Pending'))
     TYPE              = (('ClassRoom',"ClassRoom"),('Teacher',"Teacher"),('Management',"Management"),('College',"College"),('Other',"Other"))
     
-    Title             = models.CharField(max_length=200,blank=False,null=True)
-    user              = models.ForeignKey(Account, on_delete=models.CASCADE,default=None)
-    Type_of_complaint = models.CharField(choices=TYPE,null=True,max_length=200)
-    Description       = models.TextField(max_length=4000,blank=False,null=True)
+    Title             = models.CharField(max_length=200, blank=False, null=True)
+    user              = models.ForeignKey(Account, on_delete=models.CASCADE, default=None)
+    Type_of_complaint = models.CharField(choices=TYPE, null=True, max_length=200)
+    Description       = models.TextField(max_length=4000, blank=False, null=True)
     Time              = models.DateTimeField(verbose_name="time created", auto_now_add=True)
-    status            = models.IntegerField(choices=STATUS,default=3)
+    status            = models.IntegerField(choices=STATUS, default=3)
     
    
     def __init__(self, *args, **kwargs):
