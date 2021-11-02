@@ -32,7 +32,7 @@ def RegisterComplaint(request):
             #    send_mail('Hi \n Complaint has been Received', 'Thank you for letting us know of your concern, Have a Cookie while we explore into this matter. \n Dont Reply to this mail', 'testerpython13@gmail.com', [mail],fail_silently=False)
                instance.save()
                
-               messages.success(request,"Complaint Registered Successfully!")
+               messages.success(request,"Your complaint has been registered ! Kindly wait till it get resolved :)")
                return redirect('menu')
     else:
         

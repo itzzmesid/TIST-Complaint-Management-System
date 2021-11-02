@@ -89,6 +89,7 @@
               <div class="ud-login-logo">
                 <img src="{% static 'images/logo/logo-2.svg' %}" alt="logo" />
               </div>
+
               <form class="ud-login-form" method='POST' action="" >
               {% csrf_token %}
                 <div class="ud-form-group">
@@ -120,17 +121,23 @@
                 <div class="ud-form-group">
                   {{form.password2}}
                 </div>
-
+             
                 <div class="ud-form-group">
                   <button type="submit" class="ud-main-btn w-100">SignUp</button>
-                </div>
+                </div>                
               </form>
+              {% if form.errors %} 
+              <div class="alert alert-danger" role="alert">
+                {% for field in form %}
+                  <p>{{field.errors}}</p>
+                {% endfor %}
+              </div>
+            {% endif %}
             </div>
           </div>
         </div>
       </div>
     </section>
-    {{form.errors}}
     <!-- ====== Login End ====== -->
 
     <!-- ====== Back To Top Start ====== -->

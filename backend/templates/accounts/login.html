@@ -88,15 +88,20 @@
               <div class="ud-login-logo">
                 <img src="{% static 'images/logo/logo-2.svg' %}" alt="logo" />
               </div>
-                          <!--FLASH MESSAGE-->
-            <center>{% if messages %} 
+                        
+            <!--FLASH MESSAGE-->
+            {% for message in messages %}
+            {%if "login" in message.tags %}
               <div class="alert alert-danger" role="alert">
-              {% for message in messages %}
-                <p>{{message}}</p>
-              {% endfor %}
+              <p> {{message}} </p>   {# show login error message #}
               </div>
-            {% endif %}
-            </center>
+            {% elif "signup" in message.tags %}
+              <div class="alert alert-success" role="alert">
+                <p> {{message}}</p>
+              </div>
+            {%endif%}
+            {%endfor%}
+
               <form class="ud-login-form" method="POST" action="">
               {% csrf_token %}
                 <div class="ud-form-group">

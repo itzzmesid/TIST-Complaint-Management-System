@@ -18,7 +18,7 @@ def loginpage(request):
                 login(request, user)
                 return redirect('menu')
             else:
-                messages.info(request, 'Incorrect Email or Password')
+                messages.info(request, 'Incorrect Email or Password',extra_tags='login')
                 # return render(request, 'accounts/login.html')
         context = {}
         return render(request, 'accounts/login.html', context)
@@ -37,7 +37,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')  # to get username
-            messages.success(request, 'Hi'+" " + user +'Your account was created successfully!')
+            messages.success(request, 'Hi'+" " + user +'!'+" "+'Your account was created successfully!',extra_tags='signup')
             return redirect('login')
     context = {'form': form}
     return render(request, 'accounts/signup.html', context)
