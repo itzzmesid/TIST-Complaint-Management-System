@@ -16,7 +16,30 @@
     <title>Status</title>
 </head>
 <body>
-    <table class="table">
+
+<!--NAV BAR STARTS HERE-->
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">TocH Complaint Management System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Hi {{user.username}}!</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--NAV ENDS HERE-->
+ 
+  <table class="table">
 
         <thead class="thead-dark">
           <tr>
@@ -33,13 +56,13 @@
         {% for data in c %}
         <tbody>
           <tr>
-            <td>{{data.ID}}</td>
+            <td>{{data.id}}</td>
             <td>{{data.user}}</td>
             <td>{{data.Title}}</td>
             <td>{{data.Type_of_complaint}}</td>
             <td>{{data.Time}}</td>
             <td>{{data.Description}}</td>
-            <td>{{data.status}}</td>
+            <td>{{data.get_status_display}}</td>
           </tr>
         </tbody>
         {% endfor %}
