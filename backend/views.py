@@ -15,10 +15,13 @@ def menu(request):
     return render(request, 'backend/menu.html')
 
 #This page will be used to display all the ongoing complaints and must be visible to only admins
-@login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
+@login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'backend/dashboard.html')
+
+    coms = Complaint.objects.all
+    args = {'coms':coms}
+    return render(request, 'backend/dashboard.html', args)
 
 @login_required
 def RegisterComplaint(request):

@@ -69,6 +69,21 @@
     <a href="{% url 'status' %} "class="btn btn-primary">Check Here</a>
   </div>
 </div>
+
+<br>
+<br>
+
+{% if request.user.is_authenticated and request.user.is_admin %}
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="">
+  <div class="card-body">
+    <h5 class="card-title">View All Complaints</h5>
+    <p class="card-text">Admin? Click the button to see all the registered complaints</p>
+    <a href="{% url 'dashboard' %} "class="btn btn-primary">Check Here</a>
+  </div>
+</div>
+{% endif %}
+
 </center>
 
  
